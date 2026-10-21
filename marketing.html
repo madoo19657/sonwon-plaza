@@ -1,0 +1,311 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>송원프라자 마케팅 전략</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout concept: 대표와 마주 앉아 넘겨 보는 전략 문서. 왼쪽 목차 없이 한 컬럼, 12주 일정과 퍼널이 중심. */
+:root {
+  --bg: #F2F5F4;
+  --surface: #FFFFFF;
+  --ink: #10262B;
+  --muted: #55696D;
+  --line: #D5DEDD;
+  --accent: #0B6E6B;
+  --accent-ink: #FFFFFF;
+  --soft: #E3F0EE;
+  --warn: #8A5F10;
+  --warn-bg: #F8EFD9;
+  --f-display: "Noto Serif KR", "Nanum Myeongjo", serif;
+  --f-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1719; --surface: #132326; --ink: #E6EFEE; --muted: #9DB2B2;
+    --line: #25393C; --accent: #4FC3BC; --accent-ink: #06201F; --soft: #173236; --warn: #E0B15A; --warn-bg: #2B2514;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1719; --surface: #132326; --ink: #E6EFEE; --muted: #9DB2B2;
+  --line: #25393C; --accent: #4FC3BC; --accent-ink: #06201F; --soft: #173236; --warn: #E0B15A; --warn-bg: #2B2514;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--surface); z-index: 10; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.35; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+.wrap { max-width: 880px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num { font-variant-numeric: tabular-nums; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; gap: 6px 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-block: 10px; }
+.brand { font-family: var(--f-display); font-weight: 700; font-size: 16px; }
+.nav { display: flex; gap: 4px 14px; flex-wrap: wrap; font-size: 13px; }
+.nav a { color: var(--muted); text-decoration: none; padding: 4px 0; }
+.nav a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.head { padding-block: 40px 28px; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); }
+.head h1 { font-size: clamp(27px, 6vw, 42px); margin-top: 10px; letter-spacing: -0.02em; }
+.head p.lead { margin-top: 14px; color: var(--muted); font-size: 17px; max-width: 36em; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 20px; font-size: 13px; color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 500; }
+
+.sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); background: var(--surface); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.sum > div { padding: 16px; border-left: 1px solid var(--line); min-width: 0; }
+.sum > div:first-child { border-left: 0; }
+.sum b { display: block; font-family: var(--f-display); font-size: 18px; line-height: 1.4; }
+.sum span { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+@media (max-width: 560px) { .sum > div { border-left: 0; border-top: 1px solid var(--line); } .sum > div:first-child { border-top: 0; } }
+
+section { padding-block: 40px; border-top: 1px solid var(--line); scroll-margin-top: 56px; }
+.sec-h { margin-bottom: 18px; }
+.sec-h .eyebrow { display: block; margin-bottom: 6px; }
+.sec-h h2 { font-size: clamp(22px, 4.5vw, 29px); letter-spacing: -0.015em; }
+.sec-h p { margin-top: 8px; color: var(--muted); max-width: 38em; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; min-width: 0; }
+.card h3 { font-size: 18px; }
+.card p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.card ul { margin-top: 10px; display: grid; gap: 6px; font-size: 15px; }
+.card li { padding-left: 14px; position: relative; }
+.card li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 6px; height: 2px; background: var(--accent); }
+.card .tag { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--soft); padding: 2px 8px; border-radius: 3px; }
+
+.ts { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+thead th { border-top: 0; background: var(--soft); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; }
+tbody th { font-weight: 700; white-space: nowrap; }
+td.m { color: var(--muted); }
+
+.page { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.page li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 14px 18px; border-top: 1px solid var(--line); }
+.page li:first-child { border-top: 0; }
+.page b { font-size: 15px; }
+.page span { color: var(--muted); font-size: 15px; }
+@media (max-width: 560px) { .page li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+.tl { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 8px; }
+.tl li { position: relative; padding: 0 0 26px 22px; }
+.tl li:last-child { padding-bottom: 0; }
+.tl li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.tl .when { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; }
+.tl h3 { font-size: 19px; margin-top: 2px; }
+.tl ul { margin-top: 8px; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
+.tl ul li { padding: 0 0 0 14px; }
+.tl ul li::before { left: 0; top: 0.75em; width: 6px; height: 2px; border-radius: 0; border: 0; }
+
+.funnel { display: grid; gap: 8px; }
+.fn { display: grid; grid-template-columns: minmax(0, 1fr); }
+.fn div { padding: 12px 16px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+.fn div span { font-weight: 400; font-size: 14px; }
+.fn:nth-child(1) div { width: 100%; }
+.fn:nth-child(2) div { width: 88%; opacity: .92; }
+.fn:nth-child(3) div { width: 76%; opacity: .84; }
+.fn:nth-child(4) div { width: 64%; opacity: .76; }
+.fn:nth-child(5) div { width: 52%; opacity: .68; }
+@media (max-width: 560px) { .fn div { width: 100% !important; } }
+.fine { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+.legal { display: grid; gap: 10px; }
+.legal li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 6px; padding: 14px 16px; }
+.legal b { display: block; font-size: 15px; }
+.legal span { display: block; margin-top: 2px; color: var(--muted); font-size: 15px; }
+.box { margin-top: 14px; background: var(--warn-bg); color: var(--warn); border-radius: 6px; padding: 12px 16px; font-size: 14px; }
+
+.agree { counter-reset: a; display: grid; gap: 10px; }
+.agree li { counter-increment: a; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.agree li::before { content: counter(a); font-family: var(--f-display); font-weight: 700; color: var(--accent); font-size: 20px; line-height: 1.3; }
+.agree b { display: block; }
+.agree span { color: var(--muted); font-size: 15px; }
+footer { border-top: 1px solid var(--line); padding-block: 24px 56px; font-size: 13px; color: var(--muted); }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">송원프라자 마케팅 전략</div>
+    <nav class="nav" aria-label="목차">
+      <a href="#direction">방향</a><a href="#target">타깃</a><a href="#brochure">브로셔</a><a href="#channel">채널</a><a href="#plan">12주 일정</a><a href="#kpi">지표</a><a href="#legal">법적 점검</a><a href="#agree">합의사항</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap head">
+    <span class="eyebrow">북위례 송원프라자 · 3·4·5층 병원 입점</span>
+    <h1>준공 전 12주, 디지털 마케팅 전략</h1>
+    <p class="lead">웹 브로셔 링크를 지인과 중개업소에 공유하고 상담 신청을 받는 구조에서 출발해, 개원을 준비하는 의사에게 닿는 경로와 추적 체계를 더했습니다.</p>
+    <div class="meta">
+      <span>작성일 <b class="num">2026.10.22</b></span>
+      <span>실행 기간 <b class="num">2026.10.22 ~ 2027.1월 말 (준공 전까지)</b></span>
+      <span>대상 <b>3·4·5층 병·의원 입점</b></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sum">
+      <div><b>설득 대상은 개원 예정 의사</b><span>광고보다 소개와 데이터를 믿는 사람들입니다. 진료과별 수요 숫자로 답합니다.</span></div>
+      <div><b>소개 경로를 먼저 깐다</b><span>개원 컨설턴트, 의료기기·의약품 영업, 세무사, 인테리어, 지역 중개업소.</span></div>
+      <div><b>빠르게 응대하고 끝까지 추적</b><span>문의 접수 후 30분 안에 연락하고, 어느 채널에서 왔는지 기록합니다.</span></div>
+    </div>
+
+    <section id="direction">
+      <div class="sec-h">
+        <span class="eyebrow">핵심 방향</span>
+        <h2>세 축으로 움직입니다</h2>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>데이터형 브로셔</h3><p>"내 과가 여기서 되는가"를 바로 답해줍니다. 진료과를 고르면 중심 환자층의 규모가 나옵니다.</p><span class="tag">웹 브로셔</span></div>
+        <div class="card"><h3>소개 채널 장악</h3><p>의사가 개원 전에 만나는 사람들에게 링크를 깔아두고, 중개업소에는 공유 키트를 제공합니다.</p><span class="tag">제휴 · 설명회</span></div>
+        <div class="card"><h3>응대 속도와 추적</h3><p>구글폼 접수 즉시 알림이 오고, 채널별 문의 건수와 방문 건수를 주간으로 집계합니다.</p><span class="tag">운영 체계</span></div>
+      </div>
+    </section>
+
+    <section id="target">
+      <div class="sec-h">
+        <span class="eyebrow">타깃 우선순위</span>
+        <h2>누구에게 먼저 가는가</h2>
+      </div>
+      <div class="ts">
+        <table>
+          <thead><tr><th>순위</th><th>타깃</th><th>이유</th></tr></thead>
+          <tbody>
+            <tr><th class="num">1</th><td>소아청소년과, 이비인후과, 피부과, 정형외과, 통증의학과 개원 예정자</td><td class="m">수요 분석과 직결됩니다. 0~13세 17.8%, 30~40대 34.5%.</td></tr>
+            <tr><th class="num">2</th><td>내과, 치과, 한의원 등</td><td class="m">50~60대와 가족 단위 수요가 받쳐줍니다.</td></tr>
+            <tr><th class="num">3</th><td>병원 개원 컨설턴트, 의료기기·의약품 영업, 세무사</td><td class="m">의사에게 입점 후보지를 추천해 주는 경로입니다.</td></tr>
+            <tr><th class="num">4</th><td>하남·위례·송파·마천 중개업소</td><td class="m">임대·분양 매물 정보가 모이는 허브입니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="brochure">
+      <div class="sec-h">
+        <span class="eyebrow">웹 브로셔 설계</span>
+        <h2>의사가 가장 먼저 찾는 정보를 채웁니다</h2>
+        <p>의사는 휴대폰으로 먼저 봅니다. 모바일 우선으로 만들고, 모든 화면에 상담 신청 버튼을 둡니다.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>추가로 필요한 정보</h3>
+          <ul>
+            <li>3·4·5층 평면도, 전용면적, 층고</li>
+            <li>전기 용량, 방사선실·배관 가능 여부</li>
+            <li>분양가와 임대 조건 (불가하면 "상담 시 안내")</li>
+            <li>간판 위치, 엘리베이터, 승강 동선</li>
+            <li>층별·진료과별 입점 현황 (희소성 장치)</li>
+            <li>반경 내 진료과별 의원 현황 지도</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>상담 폼 항목</h3>
+          <ul>
+            <li>관심 진료과, 희망 층·면적</li>
+            <li>분양 또는 임대</li>
+            <li>희망 개원 시기, 연락 가능 시간</li>
+            <li>개인정보 수집·이용 동의</li>
+          </ul>
+          <p>구글폼 → 구글시트 → 카카오톡 또는 슬랙 알림으로 연결합니다. 제출 후 진료과별 상권 리포트 PDF를 받게 하면 전환율이 올라갑니다.</p>
+        </div>
+      </div>
+      <h3 style="margin:26px 0 12px;font-size:19px">링크 추적 구조</h3>
+      <ul class="page">
+        <li><b>채널별 링크 발급</b><span>중개업소별, 컨설턴트별, 인스타·카페용으로 각각 다른 링크를 만들어 어디서 온 문의인지 구분합니다.</span></li>
+        <li><b>집계 단위</b><span>중개업소별 문의 건수와 방문 건수를 집계하면 어느 업소가 일하는지 보이고, 인센티브와 자원 배분이 쉬워집니다.</span></li>
+        <li><b>구현 방법</b><span>구글폼에 "유입 채널" 항목을 미리 채운 링크를 채널마다 발급하는 방식이 가장 단순합니다.</span></li>
+      </ul>
+    </section>
+
+    <section id="channel">
+      <div class="sec-h">
+        <span class="eyebrow">채널 전략</span>
+        <h2>효과가 빠른 순서로 엽니다</h2>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>① 지인·중개업소</h3>
+          <ul><li>공유 키트: 링크, 카톡용 한 줄 소개, 이미지 3장, 1페이지 PDF</li><li>위례·하남·송파 중개업소 설명회 1~2회와 현장 투어</li><li>중개 수수료와 정산 조건을 명확히 안내</li></ul></div>
+        <div class="card"><h3>② 의사 대상 채널</h3>
+          <ul><li>의사 커뮤니티·개원 정보 매체 광고 (메디게이트, 닥터빌 등. 상품과 단가는 직접 확인 필요)</li><li>개원 컨설팅·의료기기·인테리어 업체와 제휴해 후보지로 등록</li><li>세무사, 은행, 인테리어, 장비 리스 업체와 공동 개원 세미나</li></ul></div>
+        <div class="card"><h3>③ 검색·SNS 광고</h3>
+          <ul><li>네이버·구글 검색광고: "위례 병원 개원", "북위례 의원 임대", "하남 소아과 개원 자리"</li><li>메타 리드폼 광고는 지역·관심사 타겟, 영상 소재 중심</li><li>소액으로 먼저 테스트하고 효율 좋은 곳에 집중</li></ul></div>
+        <div class="card"><h3>④ 콘텐츠</h3>
+          <ul><li>"의사가 보는 북위례 상권 분석" 리포트 (리드 확보용 PDF)</li><li>주차 진입로 영상, 드론 촬영, 공정 진행 영상</li><li>진료과별 입지 분석 시리즈와 네이버 블로그·플레이스 글</li></ul></div>
+      </div>
+    </section>
+
+    <section id="plan">
+      <div class="sec-h">
+        <span class="eyebrow">12주 실행 일정</span>
+        <h2>기반 → 확산 → 집중 클로징 → 준공 임박</h2>
+      </div>
+      <ol class="tl" style="list-style:none;padding:0">
+        <li><span class="when num">1~2주 · 10/22 ~ 11/4</span><h3>기반 구축</h3>
+          <ul><li>웹 브로셔 제작, 구글폼·시트·알림 연동</li><li>층별 자료 확보, 채널별 링크 발급</li><li>법적 표기 점검</li></ul></li>
+        <li><span class="when num">3~6주 · 11/5 ~ 12/2</span><h3>확산</h3>
+          <ul><li>중개업소 설명회, 개원 컨설턴트·업체 제휴</li><li>의사 매체 광고 시작, 검색·SNS 소액 테스트</li></ul></li>
+        <li><span class="when num">7~10주 · 12/3 ~ 12/30</span><h3>집중 클로징</h3>
+          <ul><li>효율 좋은 채널에 예산 집중</li><li>현장 투어 상시 운영, 개원 세미나</li><li>관심 고객 후속 연락</li></ul></li>
+        <li><span class="when num">11~12주 · 1월</span><h3>준공 임박</h3>
+          <ul><li>마감 임박 메시지, 층별 잔여 현황 공개</li><li>입점 확정 사례 공유, 준공 현장 투어</li></ul></li>
+      </ol>
+    </section>
+
+    <section id="kpi">
+      <div class="sec-h">
+        <span class="eyebrow">성과 지표</span>
+        <h2>퍼널 단계마다 전환율을 잽니다</h2>
+        <p>초기 2~3주에 각 단계의 기준선을 잡고, 병목 단계를 개선합니다.</p>
+      </div>
+      <div class="funnel" aria-label="전환 퍼널">
+        <div class="fn"><div>링크 클릭<span>채널별 유입</span></div></div>
+        <div class="fn"><div>폼 제출<span>상담 신청 접수</span></div></div>
+        <div class="fn"><div>상담 완료<span>30분 안에 첫 연락</span></div></div>
+        <div class="fn"><div>현장 방문<span>투어·설명회 참석</span></div></div>
+        <div class="fn"><div>계약<span>분양·임대</span></div></div>
+      </div>
+      <ul class="page" style="margin-top:16px">
+        <li><b>주간 점검</b><span>채널별 비용 대비 문의 건수와 방문 건수를 보고 예산을 옮깁니다.</span></li>
+        <li><b>응대 속도</b><span>접수 후 첫 연락까지 걸린 시간도 핵심 지표로 관리합니다.</span></li>
+      </ul>
+    </section>
+
+    <section id="legal">
+      <div class="sec-h">
+        <span class="eyebrow">법적 점검</span>
+        <h2>공유 전에 정리할 표현</h2>
+        <p>최종 판단은 변호사나 분양대행사 법무 검토를 권합니다.</p>
+      </div>
+      <ul class="legal">
+        <li><b>호재 표현</b><span>강동성심병원, 위례선 트램, 마천 재개발은 확정 여부와 시기가 다릅니다. "확정 / 추진 중"으로 구분하고 출처와 기준일을 쓰세요. "~될 것입니다" 같은 단정형은 피합니다.</span></li>
+        <li><b>비교 표현</b><span>"타 상가(A~E)" 비교표는 근거 자료가 없으면 비교광고 문제가 될 수 있습니다. "최상", "스트레스 제로" 같은 최상급 표현도 정리합니다.</span></li>
+        <li><b>수익 관련</b><span>수익률이나 매출을 보장하는 듯한 표현은 쓰지 않습니다.</span></li>
+        <li><b>필수 표시사항</b><span>분양 광고에는 사업주체, 시공사, 분양대행사 등 법정 표시가 필요합니다.</span></li>
+        <li><b>개인정보</b><span>폼에 수집·이용 동의를 넣고, 문자·카톡 발송 전에 수신 동의를 확인합니다.</span></li>
+      </ul>
+      <p class="box">기존 자료는 항목 번호에 2번이 빠져 있고(1→3), 인구 데이터에 출처와 기준일이 없습니다.</p>
+    </section>
+
+    <section id="agree">
+      <div class="sec-h">
+        <span class="eyebrow">대표님과 먼저 합의할 사항</span>
+        <h2>시작 전에 정해야 하는 다섯 가지</h2>
+      </div>
+      <ol class="agree" style="padding:0">
+        <li><div><b>층별 면적, 분양가, 임대 조건</b><span>공개 범위까지 함께 정합니다.</span></div></li>
+        <li><div><b>중개업소 수수료와 인센티브</b><span>정산 조건이 명확해야 적극적으로 움직입니다.</span></div></li>
+        <li><div><b>광고비 총액과 담당 구분</b><span>분양대행사와 시행사 중 누가 부담하는지 정합니다.</span></div></li>
+        <li><div><b>문의 접수 후 응대 담당과 시간</b><span>누가, 몇 분 안에 연락하는지 정합니다.</span></div></li>
+        <li><div><b>이미 협의 중인 진료과</b><span>희소성 메시지에 활용할 수 있습니다.</span></div></li>
+      </ol>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">매체 상품, 단가, 법적 요건은 실행 전에 직접 확인이 필요합니다.</div></footer>
+
+</body></html>

@@ -1,0 +1,448 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>송원프라자 메디컬 입점 안내</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout concept: 건축 도면처럼 수치와 치수선이 앞에 서는 단일 컬럼 브로셔. 진료과를 고르면 수요 막대가 그 과 기준으로 바뀐다. */
+:root {
+  --bg: #F2F5F4;
+  --surface: #FFFFFF;
+  --ink: #10262B;
+  --muted: #55696D;
+  --line: #D5DEDD;
+  --accent: #0B6E6B;
+  --accent-ink: #FFFFFF;
+  --soft: #E3F0EE;
+  --note: #8A5F10;
+  --f-display: "Noto Serif KR", "Nanum Myeongjo", serif;
+  --f-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1719; --surface: #132326; --ink: #E6EFEE; --muted: #9DB2B2;
+    --line: #25393C; --accent: #4FC3BC; --accent-ink: #06201F; --soft: #173236; --note: #E0B15A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1719; --surface: #132326; --ink: #E6EFEE; --muted: #9DB2B2;
+  --line: #25393C; --accent: #4FC3BC; --accent-ink: #06201F; --soft: #173236; --note: #E0B15A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.7;
+  word-break: keep-all; overflow-wrap: break-word;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--surface); z-index: 10;
+}
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.35; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.brand { font-family: var(--f-display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+.brand small { font-family: var(--f-body); font-weight: 500; font-size: 12px; color: var(--muted); margin-left: 8px; letter-spacing: 0.04em; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font: 700 15px/1.2 var(--f-body); text-decoration: none; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.sm { min-height: 38px; padding: 6px 14px; font-size: 14px; }
+
+/* hero */
+.hero { padding-block: 44px 36px; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); }
+.hero h1 { font-size: clamp(28px, 6.4vw, 46px); font-weight: 700; margin-top: 10px; letter-spacing: -0.02em; }
+.hero p.lead { margin-top: 16px; max-width: 34em; color: var(--muted); font-size: 17px; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 36px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); background: var(--surface); }
+.spec { padding: 16px 16px 14px; border-left: 1px solid var(--line); min-width: 0; }
+.spec:first-child { border-left: 0; }
+.spec .k { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+.spec .v { font-family: var(--f-display); font-weight: 700; font-size: 26px; line-height: 1.3; margin-top: 2px; }
+.spec .v i { font-style: normal; font-family: var(--f-body); font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 3px; }
+.spec .d { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+@media (max-width: 620px) { .spec { border-left: 0; border-top: 1px solid var(--line); } .spec:first-child { border-top: 0; } }
+
+/* sections */
+section { padding-block: 40px; border-top: 1px solid var(--line); }
+.sec-h { margin-bottom: 20px; }
+.sec-h .eyebrow { display: block; margin-bottom: 6px; }
+.sec-h h2 { font-size: clamp(22px, 4.6vw, 30px); letter-spacing: -0.015em; }
+.sec-h p { margin-top: 10px; color: var(--muted); max-width: 36em; }
+
+/* dept tabs + demand */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab { min-height: 42px; padding: 8px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; font: 500 15px/1.2 var(--f-body); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.panel { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; }
+@media (max-width: 700px) { .panel { grid-template-columns: minmax(0, 1fr); } }
+.panel h3 { font-size: 22px; }
+.panel .why { margin-top: 10px; color: var(--muted); }
+.panel .big { margin-top: 16px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.panel .big b { font-family: var(--f-display); font-size: 34px; line-height: 1.2; }
+.panel .big span { color: var(--muted); font-size: 14px; }
+.panel .go { margin-top: 18px; }
+.bars { display: grid; gap: 12px; align-content: start; }
+.bar-row { display: grid; grid-template-columns: 104px minmax(0, 1fr) 62px; align-items: center; gap: 10px; font-size: 14px; }
+.bar-row .lab { color: var(--muted); line-height: 1.3; }
+.bar-row .track { height: 14px; background: var(--soft); border-radius: 2px; overflow: hidden; }
+.bar-row .fill { height: 100%; background: var(--line); border-radius: 2px; }
+.bar-row.on .fill { background: var(--accent); }
+.bar-row.on .lab { color: var(--ink); font-weight: 700; }
+.bar-row .pct { text-align: right; color: var(--muted); }
+.bar-row.on .pct { color: var(--ink); font-weight: 700; }
+@media (max-width: 420px) { .bar-row { grid-template-columns: 84px minmax(0, 1fr) 54px; gap: 8px; font-size: 13px; } }
+.fine { margin-top: 12px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* parking */
+.park { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+@media (max-width: 700px) { .park { grid-template-columns: minmax(0, 1fr); } }
+.park figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+.park svg { width: 100%; height: auto; display: block; }
+.park figcaption { font-size: 12px; color: var(--muted); padding: 6px 4px 0; }
+.pts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pts li { display: grid; gap: 2px; padding-left: 14px; border-left: 3px solid var(--accent); }
+.pts b { font-size: 16px; }
+.pts span { color: var(--muted); font-size: 15px; }
+
+/* area list */
+.areas { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.areas li { display: grid; grid-template-columns: 188px minmax(0, 1fr); gap: 16px; padding: 16px 18px; border-top: 1px solid var(--line); }
+.areas li:first-child { border-top: 0; }
+.areas b { font-size: 15px; }
+.areas span { color: var(--muted); font-size: 15px; }
+@media (max-width: 620px) { .areas li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.notice { margin-top: 12px; font-size: 13px; color: var(--note); }
+
+/* floors */
+.table-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 13px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+thead th { border-top: 0; font-size: 12px; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; background: var(--soft); }
+tbody th { font-family: var(--f-display); font-size: 20px; white-space: nowrap; }
+
+/* inquiry */
+.inq { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 20px; display: grid; gap: 18px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label, .field .lbl { font-size: 13px; font-weight: 700; color: var(--muted); }
+.field input[type="text"], .field select { width: 100%; min-height: 46px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); font: 400 16px var(--f-body); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); font-size: 15px; }
+.chip input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+textarea { width: 100%; min-height: 148px; padding: 12px; border: 1px dashed var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); font: 400 14px/1.7 var(--f-body); resize: vertical; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.status { font-size: 14px; color: var(--accent); min-height: 1.4em; }
+.contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; font-size: 15px; color: var(--muted); }
+.contact b { font-family: var(--f-display); font-size: 26px; color: var(--ink); letter-spacing: 0.01em; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 56px; font-size: 13px; color: var(--muted); line-height: 1.8; }
+footer p + p { margin-top: 8px; }
+
+@media (prefers-reduced-motion: no-preference) { .fill { transition: width .35s ease, background-color .2s; } }
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">송원프라자<small>북위례 메디컬</small></div>
+    <a class="btn sm" href="#inquiry" data-jump="inquiry">상담 신청</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="eyebrow">3·4·5층 병원 입점 안내</span>
+    <h1>진료과마다 다른 수요를,<br>먼저 숫자로 확인하세요</h1>
+    <p class="lead">북위례 송원프라자는 준공을 앞두고 3·4·5층 병·의원 입점 상담을 받고 있습니다. 내 진료과의 배후 인구와 주차 조건을 아래에서 바로 확인할 수 있습니다.</p>
+    <div class="cta">
+      <a class="btn" href="#inquiry" data-jump="inquiry">입점 상담 신청</a>
+      <a class="btn ghost" href="#demand" data-jump="demand">진료과별 수요 보기</a>
+    </div>
+    <div class="specs">
+      <div class="spec"><div class="k">주차장 진입로</div><div class="v num">3.85<i>m 직선</i></div><div class="d">굴곡 없는 직선 진입</div></div>
+      <div class="spec"><div class="k">주차 대수</div><div class="v num">44<i>대 무기둥</i></div><div class="d">기둥 없는 주차 구조</div></div>
+      <div class="spec"><div class="k">대기 공간</div><div class="v">양방향</div><div class="d">진입 대기 공간 확보</div></div>
+      <div class="spec"><div class="k">내부 평면</div><div class="v">무기둥</div><div class="d">병원 동선에 맞춘 평면</div></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="demand">
+      <div class="sec-h">
+        <span class="eyebrow">배후 수요</span>
+        <h2>내 진료과를 고르면, 해당 연령층이 표시됩니다</h2>
+        <p>3040 부모층과 0~13세 아이가 전체 인구의 절반 이상입니다. 진료과를 선택하면 중심 환자층의 규모를 볼 수 있습니다.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="진료과 선택" id="tabs"></div>
+      <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+      <p class="fine">※ 인구 수치는 분양대행사가 제공한 배후 인구 자료 기준이며, 20대 등 일부 연령대는 표시하지 않았습니다. 기준 시점과 출처는 상담 시 안내드립니다.</p>
+    </section>
+
+    <section id="parking">
+      <div class="sec-h">
+        <span class="eyebrow">주차</span>
+        <h2>재방문은 주차에서 갈립니다</h2>
+        <p>여성과 초보 운전자 환자가 많은 소아청소년과, 이비인후과에서 특히 체감되는 조건입니다.</p>
+      </div>
+      <div class="park">
+        <figure>
+          <svg viewBox="0 0 360 200" role="img" aria-labelledby="pk-t" xmlns="http://www.w3.org/2000/svg">
+            <title id="pk-t">도로에서 건물 주차장으로 이어지는 폭 3.85m 직선 진입로 개념도</title>
+            <rect x="0" y="160" width="360" height="40" fill="var(--soft)"/>
+            <text x="12" y="185" font-size="11" fill="var(--muted)" font-family="var(--f-body)">도로</text>
+            <rect x="60" y="20" width="240" height="120" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+            <text x="72" y="40" font-size="11" fill="var(--muted)" font-family="var(--f-body)">주차장 (무기둥 44대)</text>
+            <g fill="var(--line)">
+              <rect x="76" y="52" width="22" height="30"/><rect x="104" y="52" width="22" height="30"/><rect x="132" y="52" width="22" height="30"/>
+              <rect x="206" y="52" width="22" height="30"/><rect x="234" y="52" width="22" height="30"/><rect x="262" y="52" width="22" height="30"/>
+              <rect x="76" y="98" width="22" height="30"/><rect x="104" y="98" width="22" height="30"/><rect x="132" y="98" width="22" height="30"/>
+              <rect x="206" y="98" width="22" height="30"/><rect x="234" y="98" width="22" height="30"/><rect x="262" y="98" width="22" height="30"/>
+            </g>
+            <rect x="160" y="88" width="40" height="72" fill="var(--soft)" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M180 156 V104" stroke="var(--accent)" stroke-width="2.5" fill="none"/>
+            <path d="M174 112 L180 102 L186 112 Z" fill="var(--accent)"/>
+            <line x1="160" y1="150" x2="200" y2="150" stroke="var(--ink)" stroke-width="1"/>
+            <line x1="160" y1="145" x2="160" y2="155" stroke="var(--ink)" stroke-width="1"/>
+            <line x1="200" y1="145" x2="200" y2="155" stroke="var(--ink)" stroke-width="1"/>
+            <rect x="166" y="136" width="28" height="14" fill="var(--surface)"/>
+            <text x="180" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)" font-family="var(--f-body)">3.85m</text>
+            <text x="212" y="124" font-size="11" fill="var(--accent)" font-weight="700" font-family="var(--f-body)">직선 진입</text>
+          </svg>
+          <figcaption>개념도입니다. 실제 설계와 치수는 설계도면 기준입니다.</figcaption>
+        </figure>
+        <ul class="pts">
+          <li><b>직선형 3.85m 진입로</b><span>굴곡 없이 들어오는 동선이라 처음 오는 환자도 부담이 적습니다.</span></li>
+          <li><b>무기둥 주차 구조</b><span>기둥이 없어 차를 대고 빼기 쉽습니다. 총 44대 규모입니다.</span></li>
+          <li><b>양방향 대기 공간</b><span>진입이 겹쳐도 길에서 기다리지 않도록 대기 공간을 두었습니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="area">
+      <div class="sec-h">
+        <span class="eyebrow">주변 개발 계획</span>
+        <h2>북위례 주변에서 계획된 변화</h2>
+      </div>
+      <ul class="areas">
+        <li><b>마천 3·4구역 재개발</b><span>약 4,000세대 규모로 계획된 신규 주거 단지입니다.</span></li>
+        <li><b>카이브유보라 (반도건설)</b><span>주상복합 656세대입니다.</span></li>
+        <li><b>호반건설 48층 오피스텔</b><span>전면부에 576세대 규모로 계획된 초고층 오피스텔입니다.</span></li>
+        <li><b>강동성심병원</b><span>의료복합용지에 계획된 종합병원입니다. 1·2·3차 의료기관이 함께 자리할 수 있는 환경입니다.</span></li>
+        <li><b>위례선 트램</b><span>마천역과 북위례역을 잇는 노선으로 계획되어 있습니다.</span></li>
+      </ul>
+      <p class="notice">개발 계획과 일정은 관계 기관의 사정에 따라 변경될 수 있습니다. 항목별 진행 단계와 출처는 상담 시 함께 안내드립니다.</p>
+    </section>
+
+    <section id="floors">
+      <div class="sec-h">
+        <span class="eyebrow">층별 안내</span>
+        <h2>3·4·5층 입점 상담</h2>
+        <p>면적, 분양가, 임대 조건은 층과 호실에 따라 다릅니다. 희망 진료과를 알려주시면 맞는 호실과 조건을 안내드립니다.</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>층</th><th>상담 가능 진료과</th><th>면적</th><th>분양·임대 조건</th></tr></thead>
+          <tbody>
+            <tr><th>3F</th><td>소아청소년과, 이비인후과, 피부과, 치과 등</td><td>상담 시 안내</td><td>상담 시 안내</td></tr>
+            <tr><th>4F</th><td>내과, 정형외과, 통증의학과, 신경외과 등</td><td>상담 시 안내</td><td>상담 시 안내</td></tr>
+            <tr><th>5F</th><td>한의원, 재활의학과, 기타 진료과</td><td>상담 시 안내</td><td>상담 시 안내</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">※ 위 진료과 구분은 상담을 위한 참고용이며, 실제 입점 가능 여부는 호실 현황과 업종 조건에 따라 달라집니다.</p>
+    </section>
+
+    <section id="inquiry">
+      <div class="sec-h">
+        <span class="eyebrow">상담 신청</span>
+        <h2>입점 상담, 1분이면 정리됩니다</h2>
+        <p>아래에서 관심 내용을 고르면 문의 문구가 만들어집니다. 복사해서 문자나 카카오톡으로 보내주세요. 접수 후 빠르게 연락드립니다.</p>
+      </div>
+      <div class="inq">
+        <div class="fields">
+          <div class="field"><label for="f-name">성함 (병원명)</label><input type="text" id="f-name" autocomplete="name" placeholder="예: 홍길동 원장"></div>
+          <div class="field"><label for="f-dept">관심 진료과</label>
+            <select id="f-dept"></select>
+          </div>
+          <div class="field"><label for="f-when">희망 개원 시기</label>
+            <select id="f-when">
+              <option>준공 직후</option><option>2027년 상반기</option><option>2027년 하반기</option><option>미정</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-time">연락 가능 시간</label>
+            <select id="f-time"><option>언제나 가능</option><option>오전</option><option>오후</option><option>저녁</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="l-floor">관심 층 (복수 선택)</span>
+          <div class="chips" role="group" aria-labelledby="l-floor">
+            <label class="chip"><input type="checkbox" name="floor" value="3층"><span>3층</span></label>
+            <label class="chip"><input type="checkbox" name="floor" value="4층"><span>4층</span></label>
+            <label class="chip"><input type="checkbox" name="floor" value="5층"><span>5층</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="l-type">계약 형태</span>
+          <div class="chips" role="group" aria-labelledby="l-type">
+            <label class="chip"><input type="radio" name="type" value="분양" checked><span>분양</span></label>
+            <label class="chip"><input type="radio" name="type" value="임대"><span>임대</span></label>
+            <label class="chip"><input type="radio" name="type" value="분양·임대 모두"><span>모두 검토</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="msg">보낼 문구</label>
+          <textarea id="msg" readonly></textarea>
+        </div>
+        <div class="actions">
+          <button class="btn" type="button" id="copy">문구 복사하기</button>
+          <a class="btn ghost" id="formlink" href="#" hidden target="_blank" rel="noopener">온라인 신청서로 접수</a>
+          <span class="status" id="status" role="status"></span>
+        </div>
+        <p class="fine" style="margin-top:0">이 화면에 입력한 내용은 서버로 전송되지 않습니다. 복사한 문구를 직접 보내셔야 접수됩니다. 연락처는 보내시는 번호로 확인합니다.</p>
+      </div>
+      <div class="contact">
+        <span>분양대행사 메디컬 입점 상담실</span>
+        <b class="num" id="phone">010-2382-2210</b>
+        <button class="btn ghost sm" type="button" id="copyphone">번호 복사</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>본 자료의 이미지, 도면, 수치는 이해를 돕기 위한 참고용이며 실제 시공 및 설계와 다를 수 있습니다. 주변 개발 계획은 확정된 사항이 아니며 일정과 내용이 변경될 수 있습니다.</p>
+    <p>입점 및 영업 결과를 보장하는 자료가 아닙니다. 계약 전 반드시 계약서와 설계도서를 확인하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // 온라인 신청서(구글폼) 주소를 넣으면 '온라인 신청서로 접수' 버튼이 나타납니다.
+  var FORM_URL = "";
+
+  var AGES = [
+    { label: "0~13세", sub: "영유아·초등", n: 6245, p: 17.8 },
+    { label: "14~19세", sub: "청소년", n: 2356, p: 6.7 },
+    { label: "30~40대", sub: "젊은 부모층", n: 12118, p: 34.5 },
+    { label: "50~60대", sub: "중장년층", n: 9231, p: 26.3 },
+    { label: "70세 이상", sub: "고령층", n: 2764, p: 7.9 }
+  ];
+  var DEPTS = [
+    { name: "소아청소년과", ages: [0], why: "0~13세 아이와 젊은 부모가 함께 오는 진료과입니다. 아이를 안고 차에서 내리는 일이 많아 주차 진입이 편한 건물이 유리합니다." },
+    { name: "이비인후과", ages: [0], why: "영유아와 초등 연령의 반복 방문이 많은 진료과입니다. 같은 층의 소아청소년과와 함께 가족 단위 수요를 나눌 수 있습니다." },
+    { name: "피부과", ages: [1, 2], why: "청소년과 30~40대 수요가 겹칩니다. 직장인과 부모층이 퇴근 후 찾는 시간대를 고려할 수 있습니다." },
+    { name: "정형외과·통증의학과", ages: [2, 3], why: "30~40대부터 50~60대까지 이어지는 폭넓은 환자층입니다. 두 연령대를 합치면 배후 인구의 60% 안팎입니다." },
+    { name: "내과", ages: [3], why: "50~60대 중장년층이 중심입니다. 정기 진료로 이어지는 환자가 많아 접근성과 주차 조건이 재방문에 영향을 줍니다." },
+    { name: "치과", ages: [0, 1], why: "아동치과는 0~13세, 교정치과는 14~19세 수요가 중심입니다." },
+    { name: "한의원·재활의학과", ages: [4], why: "70세 이상 고령층 수요가 중심입니다. 무기둥 주차와 엘리베이터 동선이 환자 편의에 직접 연결됩니다." }
+  ];
+  var fmt = function (n) { return n.toLocaleString("ko-KR"); };
+
+  var tabs = document.getElementById("tabs");
+  var panel = document.getElementById("panel");
+  var deptSel = document.getElementById("f-dept");
+  var current = 0;
+
+  DEPTS.forEach(function (d, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "tab"; b.setAttribute("role", "tab");
+    b.id = "tab-" + i; b.textContent = d.name;
+    b.addEventListener("click", function () { select(i); });
+    tabs.appendChild(b);
+    var o = document.createElement("option"); o.textContent = d.name; deptSel.appendChild(o);
+  });
+  var other = document.createElement("option"); other.textContent = "기타 진료과"; deptSel.appendChild(other);
+
+  function select(i) {
+    current = i;
+    var d = DEPTS[i];
+    Array.prototype.forEach.call(tabs.children, function (t, k) { t.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    var sumN = 0, sumP = 0;
+    d.ages.forEach(function (a) { sumN += AGES[a].n; sumP += AGES[a].p; });
+    var rows = AGES.map(function (a, k) {
+      var on = d.ages.indexOf(k) > -1;
+      return '<div class="bar-row' + (on ? ' on' : '') + '"><div class="lab">' + a.label + '<br><small>' + a.sub + '</small></div>' +
+        '<div class="track"><div class="fill" style="width:' + (a.p / 34.5 * 100).toFixed(1) + '%"></div></div>' +
+        '<div class="pct num">' + a.p.toFixed(1) + '%</div></div>';
+    }).join("");
+    panel.setAttribute("aria-labelledby", "tab-" + i);
+    panel.innerHTML =
+      '<div><h3>' + d.name + '</h3><p class="why">' + d.why + '</p>' +
+      '<div class="big"><b class="num">' + fmt(sumN) + '명</b><span>중심 환자층 · 배후 인구의 ' + sumP.toFixed(1) + '%</span></div>' +
+      '<div class="go"><button class="btn sm" type="button" id="pick">이 진료과로 상담 신청</button></div></div>' +
+      '<div class="bars" aria-label="연령대별 인구 비율">' + rows + '</div>';
+    document.getElementById("pick").addEventListener("click", function () {
+      deptSel.value = d.name; build(); jump("inquiry");
+    });
+  }
+
+  function jump(id) {
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-jump]"), function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); jump(a.getAttribute("data-jump")); });
+  });
+
+  // 유입 채널 표시: 링크 끝에 #src-채널명 을 붙이면 문구에 함께 기록됩니다.
+  var src = "";
+  var m = (location.hash || "").match(/^#src-([A-Za-z0-9._~-]+)/);
+  if (m) src = m[1];
+
+  var msg = document.getElementById("msg");
+  var status = document.getElementById("status");
+  function checked(name) {
+    return Array.prototype.map.call(document.querySelectorAll('input[name="' + name + '"]:checked'), function (x) { return x.value; });
+  }
+  function build() {
+    var floors = checked("floor");
+    var lines = [
+      "[송원프라자 입점 상담 신청]",
+      "성함(병원명): " + (document.getElementById("f-name").value.trim() || "(미입력)"),
+      "관심 진료과: " + deptSel.value,
+      "관심 층: " + (floors.length ? floors.join(", ") : "미정"),
+      "계약 형태: " + (checked("type")[0] || "분양"),
+      "희망 개원 시기: " + document.getElementById("f-when").value,
+      "연락 가능 시간: " + document.getElementById("f-time").value
+    ];
+    if (src) lines.push("유입: " + src);
+    msg.value = lines.join("\n");
+  }
+  ["f-name", "f-dept", "f-when", "f-time"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", build);
+    document.getElementById(id).addEventListener("change", build);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('input[type="checkbox"], input[type="radio"]'), function (x) { x.addEventListener("change", build); });
+
+  function copy(text, el, done) {
+    var ok = function () { status.textContent = done; };
+    var fail = function () {
+      if (el && el.select) { el.removeAttribute("readonly"); el.select(); el.setAttribute("readonly", ""); }
+      status.textContent = "자동 복사가 안 됩니다. 선택된 내용을 길게 눌러 복사해 주세요.";
+    };
+    try { navigator.clipboard.writeText(text).then(ok, fail); } catch (e) { fail(); }
+  }
+  document.getElementById("copy").addEventListener("click", function () { copy(msg.value, msg, "복사했습니다. 문자나 카카오톡에 붙여넣어 보내주세요."); });
+  document.getElementById("copyphone").addEventListener("click", function () {
+    var tmp = document.getElementById("phone");
+    copy(tmp.textContent, null, "번호를 복사했습니다.");
+  });
+
+  if (FORM_URL) { var fl = document.getElementById("formlink"); fl.href = FORM_URL; fl.hidden = false; }
+
+  select(0); build();
+})();
+</script>
+
+</body></html>
